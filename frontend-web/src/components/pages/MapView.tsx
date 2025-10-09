@@ -194,17 +194,17 @@ export default function MapView() {
                 {/* Map Placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-green-50">
                   <div className="text-center space-y-2">
-                    <MapPin className="h-12 w-12 mx-auto text-muted-foreground" />
-                    <p className="text-sm text-muted-foreground">Interactive Mapbox map would appear here</p>
-                    <p className="text-xs text-muted-foreground">Showing {filteredLocations.length} training locations</p>
+                    <img src="../../../public/india.jpg" ></img>
+                    {/* <p className="text-sm text-muted-foreground">Interactive Mapbox map would appear here</p>
+                    <p className="text-xs text-muted-foreground">Showing {filteredLocations.length} training locations</p> */}
                   </div>
                 </div>
 
                 {/* Simulated Map Markers */}
                 <div className="absolute inset-0 pointer-events-none">
                   {filteredLocations.map((location, index) => {
-                    const top = 20 + (index * 10) % 60;
-                    const left = 15 + (index * 15) % 70;
+                    const top = 30 + (index * 10) % 60;
+                    const left = 20 + (index * 15) % 70;
                     return (
                       <div
                         key={location.id}
