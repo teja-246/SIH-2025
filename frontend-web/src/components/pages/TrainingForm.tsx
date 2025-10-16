@@ -64,7 +64,8 @@ export default function TrainingForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    // const formData = new FormData(e.currentTarget);
+    // may uncomment later -- type was undefined
     
     // Mock submission
     toast.success('Training program created successfully!');

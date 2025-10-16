@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Badge } from '../ui/badge';
@@ -65,8 +65,11 @@ export default function UserManagement() {
   };
 
   const handleDeleteUser = (userId: number) => {
+    console.log('Delete user with ID:', userId);
     toast.success('User deleted successfully');
   };
+  // may uncomment later -- type was undefined
+
 
   return (
     <div className="p-4 md:p-6 space-y-6">
