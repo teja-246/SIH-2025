@@ -18,6 +18,7 @@ import { Calendar as CalendarIcon, MapPin, Upload, Save, X } from 'lucide-react'
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { Badge } from '../ui/badge';
+import axios from 'axios';
 
 export default function TrainingForm() {
   const navigate = useNavigate();
@@ -26,6 +27,8 @@ export default function TrainingForm() {
   const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
   const [attachments, setAttachments] = useState<File[]>([]);
 
+
+  
   const themes = [
     'Flood Management',
     'Fire Safety',
@@ -62,10 +65,14 @@ export default function TrainingForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // const formData = new FormData(e.currentTarget);
-    // may uncomment later -- type was undefined
+  const handleSubmit = () => {
+    axios.post('https://localhost:8000/trainings', {
+      title: 'Sample Training',
+      description: 'This is a sample training description.',
+      organizer: 'Sample Organizer',
+    })
+    .then(response => console.log(response.data))
+    .catch(error => console.error(error));
     
     // Mock submission
     toast.success('Training program created successfully!');
@@ -299,61 +306,7 @@ export default function TrainingForm() {
           </CardContent>
         </Card>
 
-        {/* Participants */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Participants</CardTitle>
-            <CardDescription>Expected participant information</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="participantCount">Number of Participants *</Label>
-                <Input
-                  id="participantCount"
-                  name="participantCount"
-                  type="number"
-                  placeholder="e.g., 50"
-                  required
-                  className="bg-input-background"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="participantType">Participant Type</Label>
-                <Select name="participantType">
-                  <SelectTrigger className="bg-input-background">
-                    <SelectValue placeholder="Select type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="government">Government Officer</SelectItem>
-                    <SelectItem value="volunteer">Volunteer</SelectItem>
-                    <SelectItem value="ngo">NGO Staff</SelectItem>
-                    <SelectItem value="community">Community Member</SelectItem>
-                    <SelectItem value="mixed">Mixed</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="participantList">Participant List (Optional)</Label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    id="participantList"
-                    type="file"
-                    accept=".csv,.xlsx,.xls"
-                    className="bg-input-background"
-                  />
-                  <Button type="button" variant="outline" size="icon">
-                    <Upload className="h-4 w-4" />
-                  </Button>
-                </div>
-                <p className="text-xs text-muted-foreground">Upload CSV or Excel file with participant details</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
+       
         {/* Status & Materials */}
         <Card>
           <CardHeader>
