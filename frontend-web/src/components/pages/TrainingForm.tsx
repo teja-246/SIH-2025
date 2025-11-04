@@ -306,7 +306,11 @@ export default function TrainingForm() {
           </CardContent>
         </Card>
 
+<<<<<<< HEAD
+
+=======
        
+>>>>>>> 688224b1851dadce5c276adb09f69dcfe241582c
         {/* Status & Materials */}
         <Card>
           <CardHeader>
