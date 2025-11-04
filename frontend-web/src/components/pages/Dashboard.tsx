@@ -171,33 +171,7 @@ export default function Dashboard({ userRole }: DashboardProps) {
         </Card>
       </div>
 
-      {/* Alerts Section */}
-      {userRole === 'admin' && (
-        <Card className="border-l-4 border-l-orange-500 shadow-md bg-gradient-to-r from-orange-50/30 to-white">
-          <CardHeader>
-            <CardTitle className="text-base flex items-center gap-2 text-orange-900">
-              <div className="bg-orange-100 p-2 rounded-lg">
-                <AlertCircle className="h-5 w-5 text-orange-600" />
-              </div>
-              System Alerts & Notifications
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {alerts.map((alert) => (
-                <div key={alert.id} className="flex items-start justify-between gap-4 p-3 rounded-lg bg-white border border-orange-200/50 hover:border-orange-300 transition-colors">
-                  <div className="flex-1">
-                    <p className="text-sm text-slate-700">{alert.message}</p>
-                  </div>
-                  <Badge variant={alert.priority === 'high' ? 'destructive' : alert.priority === 'medium' ? 'default' : 'secondary'} className={alert.priority === 'medium' ? 'bg-blue-600' : ''}>
-                    {alert.priority}
-                  </Badge>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
+      
 
       {/* Charts Row 1 */}
       <div className="grid gap-4 lg:grid-cols-7">
@@ -267,25 +241,7 @@ export default function Dashboard({ userRole }: DashboardProps) {
         </Card>
       </div>
 
-      {/* Charts Row 2 */}
-      <div className="grid gap-4 lg:grid-cols-2">
-        <Card className="shadow-md bg-white">
-          <CardHeader>
-            <CardTitle className="text-blue-900">Top States by Training Coverage</CardTitle>
-            <CardDescription>Number of completed training sessions</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={trainingsByState} layout="horizontal">
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis type="number" stroke="#64748b" />
-                <YAxis dataKey="state" type="category" width={100} stroke="#64748b" />
-                <Tooltip />
-                <Bar dataKey="count" fill="#3b82f6" radius={[0, 4, 4, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+      
 
         <Card className="shadow-md bg-white">
           <CardHeader className="flex flex-row items-center justify-between">
@@ -337,7 +293,7 @@ export default function Dashboard({ userRole }: DashboardProps) {
             </div>
           </CardContent>
         </Card>
-      </div>
+      
     </div>
   );
 }

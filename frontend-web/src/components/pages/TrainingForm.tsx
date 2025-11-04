@@ -298,60 +298,6 @@ export default function TrainingForm() {
           </CardContent>
         </Card>
 
-        {/* Participants */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Participants</CardTitle>
-            <CardDescription>Expected participant information</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="participantCount">Number of Participants *</Label>
-                <Input
-                  id="participantCount"
-                  name="participantCount"
-                  type="number"
-                  placeholder="e.g., 50"
-                  required
-                  className="bg-input-background"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="participantType">Participant Type</Label>
-                <Select name="participantType">
-                  <SelectTrigger className="bg-input-background">
-                    <SelectValue placeholder="Select type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="government">Government Officer</SelectItem>
-                    <SelectItem value="volunteer">Volunteer</SelectItem>
-                    <SelectItem value="ngo">NGO Staff</SelectItem>
-                    <SelectItem value="community">Community Member</SelectItem>
-                    <SelectItem value="mixed">Mixed</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="participantList">Participant List (Optional)</Label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    id="participantList"
-                    type="file"
-                    accept=".csv,.xlsx,.xls"
-                    className="bg-input-background"
-                  />
-                  <Button type="button" variant="outline" size="icon">
-                    <Upload className="h-4 w-4" />
-                  </Button>
-                </div>
-                <p className="text-xs text-muted-foreground">Upload CSV or Excel file with participant details</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Status & Materials */}
         <Card>
