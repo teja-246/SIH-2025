@@ -17,8 +17,6 @@ import { Link } from 'react-router-dom';
 import {
   BarChart,
   Bar,
-  LineChart,
-  Line,
   PieChart,
   Pie,
   Cell,
@@ -37,6 +35,7 @@ interface DashboardProps {
 }
 
 // Mock data
+// bottom left training trends graph 
 const trainingsByMonth = [
   { month: 'Apr', trainings: 45, participants: 1200 },
   { month: 'May', trainings: 52, participants: 1450 },
@@ -47,6 +46,7 @@ const trainingsByMonth = [
   { month: 'Oct', trainings: 58, participants: 1650 },
 ];
 
+// bottom right pie chart
 const trainingsByTheme = [
   { name: 'Flood Management', value: 145, color: '#1e40af' },
   { name: 'Fire Safety', value: 98, color: '#f97316' },
@@ -55,6 +55,7 @@ const trainingsByTheme = [
   { name: 'Cyclone Preparedness', value: 76, color: '#ea580c' },
 ];
 
+// Top States by Training Coverage graph 
 const trainingsByState = [
   { state: 'Maharashtra', count: 67 },
   { state: 'Karnataka', count: 54 },
@@ -64,6 +65,7 @@ const trainingsByState = [
   { state: 'UP', count: 38 },
 ];
 
+// dummy trainings 
 const recentTrainings = [
   { id: 1, title: 'Flood Response Training', location: 'Mumbai, Maharashtra', date: '2025-10-03', participants: 45, status: 'completed' },
   { id: 2, title: 'Fire Safety Workshop', location: 'Bangalore, Karnataka', date: '2025-10-04', participants: 32, status: 'completed' },
@@ -225,7 +227,8 @@ export default function Dashboard({ userRole }: DashboardProps) {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                  // label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                  // may uncomment later -- type percent was undefined
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"

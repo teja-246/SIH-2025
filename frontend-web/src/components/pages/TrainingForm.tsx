@@ -18,6 +18,7 @@ import { Calendar as CalendarIcon, MapPin, Upload, Save, X } from 'lucide-react'
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { Badge } from '../ui/badge';
+import axios from 'axios';
 
 export default function TrainingForm() {
   const navigate = useNavigate();
@@ -26,6 +27,8 @@ export default function TrainingForm() {
   const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
   const [attachments, setAttachments] = useState<File[]>([]);
 
+
+  
   const themes = [
     'Flood Management',
     'Fire Safety',
@@ -62,9 +65,14 @@ export default function TrainingForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  const handleSubmit = () => {
+    axios.post('https://localhost:8000/trainings', {
+      title: 'Sample Training',
+      description: 'This is a sample training description.',
+      organizer: 'Sample Organizer',
+    })
+    .then(response => console.log(response.data))
+    .catch(error => console.error(error));
     
     // Mock submission
     toast.success('Training program created successfully!');
@@ -298,7 +306,11 @@ export default function TrainingForm() {
           </CardContent>
         </Card>
 
+<<<<<<< HEAD
 
+=======
+       
+>>>>>>> 688224b1851dadce5c276adb09f69dcfe241582c
         {/* Status & Materials */}
         <Card>
           <CardHeader>

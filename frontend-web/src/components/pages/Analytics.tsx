@@ -29,7 +29,6 @@ import {
   PolarRadiusAxis,
   Radar,
   ComposedChart,
-  Area
 } from 'recharts';
 import { Download, TrendingUp, TrendingDown, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
@@ -83,7 +82,7 @@ const gapAnalysis = [
 
 export default function Analytics() {
   const [timeRange, setTimeRange] = useState('9months');
-  const [selectedMetric, setSelectedMetric] = useState('trainings');
+  // const [selectedMetric, setSelectedMetric] = useState('trainings');
 
   return (
     <div className="p-4 md:p-6 space-y-6">
@@ -246,7 +245,8 @@ export default function Analytics() {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                      // label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                      // may uncomment later -- type percent was undefined
                       outerRadius={90}
                       fill="#8884d8"
                       dataKey="value"
