@@ -14,7 +14,7 @@ import {
 } from '../ui/select';
 import { Calendar } from '../ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
-import { Calendar as CalendarIcon, MapPin, Upload, Save, X } from 'lucide-react';
+import { Calendar as CalendarIcon, MapPin, Save, X } from 'lucide-react';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { Badge } from '../ui/badge';
@@ -28,7 +28,7 @@ export default function TrainingForm() {
   const [attachments, setAttachments] = useState<File[]>([]);
 
 
-  
+
   const themes = [
     'Flood Management',
     'Fire Safety',
@@ -71,9 +71,9 @@ export default function TrainingForm() {
       description: 'This is a sample training description.',
       organizer: 'Sample Organizer',
     })
-    .then(response => console.log(response.data))
-    .catch(error => console.error(error));
-    
+      .then(response => console.log(response.data))
+      .catch(error => console.error(error));
+
     // Mock submission
     toast.success('Training program created successfully!');
     setTimeout(() => {
@@ -306,7 +306,7 @@ export default function TrainingForm() {
           </CardContent>
         </Card>
 
-       
+
         {/* Status & Materials */}
         <Card>
           <CardHeader>
